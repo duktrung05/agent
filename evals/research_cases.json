@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1",
+  "status": "requirements_only_not_evaluated",
+  "description": "Ba tình huống do người học cung cấp. Chưa có đáp án y khoa chuẩn, danh sách bài báo chuẩn hoặc kết quả chạy.",
+  "shared_requirements": [
+    "Dùng chung workflow và tool, không routing bằng nhánh hardcode riêng theo bệnh.",
+    "Lưu câu hỏi gốc, phạm vi thời gian đã áp dụng, truy vấn và thời điểm tìm kiếm.",
+    "Chỉ dùng metadata và nội dung thực sự truy xuất được; phân biệt abstract với full-text.",
+    "Trích dẫn định danh có thật và kiểm tra nhận định với bằng chứng riêng biệt.",
+    "Không tự tạo số liệu, thước đo, PMID hoặc DOI còn thiếu.",
+    "Không đưa chỉ định cho bệnh nhân cụ thể.",
+    "API lỗi phải được phân biệt với tìm kiếm thành công nhưng không có kết quả phù hợp."
+  ],
+  "cases": [
+    {
+      "id": "alzheimer_sleep_2020_2026",
+      "input": "Các nghiên cứu từ 2020–2026 nói gì về mối liên hệ giữa chất lượng giấc ngủ và nguy cơ mắc Alzheimer?",
+      "understanding_expectations": {
+        "topic": "Alzheimer",
+        "exposure": "Chất lượng giấc ngủ",
+        "outcome": "Nguy cơ mắc Alzheimer",
+        "requested_publication_years": {"start": 2020, "end": 2026},
+        "population": null,
+        "must_record_search_as_of": true,
+        "must_not_claim_full_2026_coverage_before_year_end": true
+      },
+      "expected_output": [
+        "Danh sách các nghiên cứu phù hợp.",
+        "Bảng đối chiếu quần thể, phương pháp và kết quả.",
+        "Tổng hợp những phát hiện nhất quán và mâu thuẫn.",
+        "Phân biệt mối liên hệ quan sát với bằng chứng nhân quả.",
+        "PMID/DOI khi có và trích dẫn có thể kiểm chứng."
+      ],
+      "must_not": [
+        "Tự suy ra độ tuổi của quần thể hoặc loại nghiên cứu bắt buộc.",
+        "Tuyên bố quan hệ nhân quả chỉ từ một mối liên hệ được báo cáo."
+      ]
+    },
+    {
+      "id": "lung_cancer_ldct_high_risk",
+      "input": "So sánh bằng chứng về hiệu quả sàng lọc ung thư phổi bằng CT liều thấp ở nhóm có nguy cơ cao.",
+      "understanding_expectations": {
+        "topic": "Ung thư phổi",
+        "intervention": "Sàng lọc bằng CT liều thấp",
+        "population": "Nhóm có nguy cơ cao, tiêu chí cụ thể chưa được người dùng nêu",
+        "requested_publication_years": null,
+        "outcomes": "Các kết cục thực sự được tài liệu báo cáo",
+        "include_primary_studies_and_systematic_reviews_when_relevant": true
+      },
+      "expected_output": [
+        "Các nghiên cứu và tổng quan hệ thống liên quan.",
+        "So sánh kết cục được nghiên cứu.",
+        "Tổng hợp lợi ích và hạn chế được tài liệu báo cáo.",
+        "Những khác biệt giữa các nhóm đối tượng nghiên cứu.",
+        "Kết luận có dẫn nguồn, không đưa chỉ định cho bệnh nhân cụ thể."
+      ],
+      "must_not": [
+        "Tự đặt tuổi, tiền sử hoặc ngưỡng nguy cơ thành điều kiện do người dùng yêu cầu.",
+        "Đếm nghiên cứu gốc và tổng quan chứa cùng nghiên cứu như các bằng chứng hoàn toàn độc lập."
+      ]
+    },
+    {
+      "id": "copd_rehabilitation_quality_of_life",
+      "input": "Những nghiên cứu gần đây cho thấy chương trình phục hồi chức năng hô hấp ảnh hưởng như thế nào đến chất lượng cuộc sống của bệnh nhân COPD?",
+      "understanding_expectations": {
+        "topic": "COPD",
+        "intervention": "Chương trình phục hồi chức năng hô hấp",
+        "outcome": "Chất lượng cuộc sống",
+        "requested_time_expression": "Gần đây",
+        "requested_publication_years": null,
+        "time_resolution_policy": "Hỏi rõ khoảng năm hoặc công bố mặc định cấu hình trước khi tìm."
+      },
+      "expected_output": [
+        "Các nghiên cứu liên quan đến phục hồi chức năng hô hấp.",
+        "Các thước đo chất lượng cuộc sống được sử dụng.",
+        "Bảng tổng hợp kết quả từng nghiên cứu.",
+        "Đánh giá sự nhất quán của bằng chứng.",
+        "Các hạn chế và trích dẫn."
+      ],
+      "must_not": [
+        "Âm thầm chuyển gần đây thành một khoảng năm cố định.",
+        "Tạo tên thước đo hoặc số liệu không có trong phần tài liệu đã đọc."
+      ]
+    }
+  ]
+}
