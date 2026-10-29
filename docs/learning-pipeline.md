@@ -3,6 +3,8 @@
 Nguồn: [Agent-Vin.pdf](../../Agent-Vin.pdf). Mỗi Day là một chương, không phải hạn một ngày.
 Các sơ đồ là thiết kế để học; chưa phải các tính năng đã triển khai.
 
+**Ứng dụng hiện tại:** `python3 -m medical_agent`. Xem [sơ đồ bản local v1 và cách đọc code](system.md).
+
 ## 1. Bản đồ học
 
 ```mermaid
@@ -65,5 +67,6 @@ flowchart LR
 
 **Các ca mô phỏng:** Alzheimer hoàn tất · COPD hỏi lại · ung thư phổi tìm bổ sung · PubMed timeout · tài liệu chứa injection.
 
-**Đang học:** [nối hai tool bằng vòng lặp](7.md), sau khi đã gọi riêng search và fetch.
+**Đang học:** chạy [hệ thống tích hợp](system.md), quan sát quyết định và đọc trace.
+Các bài nhỏ, gồm [vòng lặp hai tool](7.md), được giữ để học từng thành phần.
 **Chi tiết trách nhiệm và nguồn:** [workflow.md](workflow.md).

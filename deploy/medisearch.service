@@ -1,0 +1,31 @@
+[Unit]
+Description=MediSearch private research web application
+Wants=network-online.target ollama.service
+After=network-online.target ollama.service
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=medisearch
+Group=medisearch
+WorkingDirectory=/opt/medisearch
+EnvironmentFile=/etc/medisearch/web.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -m medical_agent.web --port 8001 --home /var/lib/medisearch --public-origin ${MEDISEARCH_PUBLIC_ORIGIN} --auth-file /etc/medisearch/auth.json
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=210
+StateDirectory=medisearch
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target

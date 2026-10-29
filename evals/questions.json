@@ -1,0 +1,458 @@
+{
+  "schema_version": "1.0",
+  "status": "draft_split_and_references_require_review",
+  "description": "30 câu hỏi yêu cầu, chưa có đáp án y khoa hoặc nhãn nguồn. Chia 10 dev/20 test là đề xuất; cần rà gần trùng và nguồn giao nhau trước thí nghiệm cuối. Không sử dụng nhãn làm context model.",
+  "cases": [
+    {
+      "id": "alz_sleep_single",
+      "split": "dev",
+      "group": "alz_sleep_single",
+      "topic": "alzheimer",
+      "question": "Tóm tắt 1 bài báo về giấc ngủ và Alzheimer; chỉ cần nêu mối liên hệ được tác giả mô tả.",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu phát hiện được nguồn hỗ trợ và giới hạn phần đã đọc."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_sleep_overview",
+      "split": "dev",
+      "group": "alz_sleep_overview",
+      "topic": "alzheimer",
+      "question": "Các nghiên cứu từ 2020–2026 nói gì về mối liên hệ giữa chất lượng giấc ngủ và nguy cơ mắc Alzheimer?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu nghiên cứu phù hợp, quần thể và phương pháp.",
+        "Tổng hợp kết quả có nguồn, phân biệt liên hệ và nhân quả."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_sleep_latency",
+      "split": "dev",
+      "group": "alz_sleep_latency",
+      "topic": "alzheimer",
+      "question": "Các nghiên cứu nói gì về thời gian đi vào giấc ngủ và nguy cơ Alzheimer?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt thời gian đi vào giấc ngủ với tổng thời lượng ngủ.",
+        "Chỉ nêu kết quả xuất hiện trong nguồn đã đọc."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_bidirection",
+      "split": "dev",
+      "group": "alz_bidirection",
+      "topic": "alzheimer",
+      "question": "Các tài liệu mô tả quan hệ hai chiều giữa rối loạn giấc ngủ và Alzheimer như thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt chiều quan hệ và bằng chứng cho từng chiều.",
+        "Nêu giới hạn của nguồn."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_ldct_overview",
+      "split": "dev",
+      "group": "lung_ldct_overview",
+      "topic": "lung_cancer",
+      "question": "So sánh bằng chứng về hiệu quả sàng lọc ung thư phổi bằng CT liều thấp ở nhóm có nguy cơ cao.",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu thiết kế, quần thể và kết cục trong nguồn.",
+        "So sánh lợi ích và hạn chế, không đưa chỉ định cá nhân."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_study_design",
+      "split": "dev",
+      "group": "lung_study_design",
+      "topic": "lung_cancer",
+      "question": "Bằng chứng từ thử nghiệm và tổng quan về CT liều thấp trong sàng lọc ung thư phổi khác nhau thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt nghiên cứu gốc và tổng quan.",
+        "Không đếm dữ liệu lặp như bằng chứng độc lập."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_risk_population",
+      "split": "dev",
+      "group": "lung_risk_population",
+      "topic": "lung_cancer",
+      "question": "Các nghiên cứu về CT liều thấp mô tả nhóm nguy cơ cao và giới hạn áp dụng kết quả ra sao?",
+      "clarifications": [],
+      "required_outputs": [
+        "Chỉ nêu tiêu chí quần thể thực sự có trong nguồn.",
+        "Nêu giới hạn khái quát hóa."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_qol_recent",
+      "split": "dev",
+      "group": "copd_qol_recent",
+      "topic": "copd",
+      "question": "Những nghiên cứu gần đây cho thấy chương trình phục hồi chức năng hô hấp ảnh hưởng như thế nào đến chất lượng cuộc sống của bệnh nhân COPD?",
+      "clarifications": [
+        "2020–2026"
+      ],
+      "required_outputs": [
+        "Làm rõ khoảng năm trước khi tìm.",
+        "Nêu chất lượng cuộc sống và giới hạn bằng chứng."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_qol_measures",
+      "split": "dev",
+      "group": "copd_qol_measures",
+      "topic": "copd",
+      "question": "Các nghiên cứu phục hồi chức năng hô hấp ở COPD sử dụng thước đo chất lượng cuộc sống nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Chỉ nêu tên thước đo trong nguồn.",
+        "Không gộp số liệu từ thước đo không tương thích."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_followup",
+      "split": "dev",
+      "group": "copd_followup",
+      "topic": "copd",
+      "question": "Kết quả chất lượng cuộc sống sau phục hồi chức năng hô hấp ở COPD được theo dõi trong bao lâu?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu thời gian theo dõi được báo cáo.",
+        "Ghi rõ nếu abstract không cung cấp thông tin."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_duration",
+      "split": "test",
+      "group": "alz_duration",
+      "topic": "alzheimer",
+      "question": "Các nghiên cứu so sánh thời lượng ngủ ngắn và dài trong mối liên hệ với Alzheimer ra sao?",
+      "clarifications": [],
+      "required_outputs": [
+        "Giữ định nghĩa thời lượng ngủ của từng nghiên cứu.",
+        "So sánh kết quả và độ không chắc chắn."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_apnea",
+      "split": "test",
+      "group": "alz_apnea",
+      "topic": "alzheimer",
+      "question": "Những nghiên cứu nào mô tả mối liên hệ giữa ngưng thở khi ngủ và Alzheimer?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt phơi nhiễm với kết cục.",
+        "Giữ quần thể và thiết kế nghiên cứu."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_fragmentation",
+      "split": "test",
+      "group": "alz_fragmentation",
+      "topic": "alzheimer",
+      "question": "Các nghiên cứu về giấc ngủ phân mảnh và Alzheimer báo cáo kết quả gì?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu cách đánh giá giấc ngủ phân mảnh nếu nguồn có.",
+        "Không diễn giải liên hệ thành nhân quả."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_objective_sleep",
+      "split": "test",
+      "group": "alz_objective_sleep",
+      "topic": "alzheimer",
+      "question": "Bằng chứng dùng thiết bị đo giấc ngủ trong nghiên cứu Alzheimer có những giới hạn nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu phương pháp đo được mô tả.",
+        "Tách giới hạn tác giả nêu với giới hạn chỉ đọc abstract."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_self_report",
+      "split": "test",
+      "group": "alz_self_report",
+      "topic": "alzheimer",
+      "question": "Các nghiên cứu dựa trên tự báo cáo chất lượng giấc ngủ khi tìm hiểu Alzheimer có đặc điểm gì?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu quần thể và phương pháp tự báo cáo có trong nguồn.",
+        "Không tự thêm hạn chế không được xác nhận."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "alz_incident_vs_existing",
+      "split": "test",
+      "group": "alz_incident_vs_existing",
+      "topic": "alzheimer",
+      "question": "Các tài liệu phân biệt nguy cơ mắc Alzheimer mới với rối loạn giấc ngủ ở người đã mắc bệnh như thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt bệnh hiện có và nguy cơ mới mắc.",
+        "Gắn nhận định với nguồn phù hợp."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_mortality",
+      "split": "test",
+      "group": "lung_mortality",
+      "topic": "lung_cancer",
+      "question": "Sàng lọc ung thư phổi bằng CT liều thấp được đánh giá qua kết cục tử vong nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt tử vong do ung thư phổi với tử vong chung.",
+        "Giữ số liệu và đơn vị có trong nguồn."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_false_positive",
+      "split": "test",
+      "group": "lung_false_positive",
+      "topic": "lung_cancer",
+      "question": "Các nghiên cứu CT liều thấp báo cáo thế nào về kết quả dương tính giả trong sàng lọc ung thư phổi?",
+      "clarifications": [],
+      "required_outputs": [
+        "Giữ định nghĩa dương tính giả của nguồn.",
+        "Không suy ra tỷ lệ khi abstract không có số liệu."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_overdiagnosis",
+      "split": "test",
+      "group": "lung_overdiagnosis",
+      "topic": "lung_cancer",
+      "question": "Bằng chứng về chẩn đoán quá mức trong sàng lọc ung thư phổi bằng CT liều thấp có những điểm chưa rõ nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Chỉ nêu mức độ và giới hạn nguồn mô tả.",
+        "Phân biệt chẩn đoán quá mức với dương tính giả."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_radiation",
+      "split": "test",
+      "group": "lung_radiation",
+      "topic": "lung_cancer",
+      "question": "Các tài liệu đánh giá tác hại do phơi nhiễm bức xạ trong sàng lọc ung thư phổi bằng CT liều thấp ra sao?",
+      "clarifications": [],
+      "required_outputs": [
+        "Giữ phương pháp và loại kết cục được nguồn báo cáo.",
+        "Không tự tính nguy cơ cá nhân."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_screening_rounds",
+      "split": "test",
+      "group": "lung_screening_rounds",
+      "topic": "lung_cancer",
+      "question": "Những nghiên cứu CT liều thấp mô tả số vòng sàng lọc và thời gian theo dõi như thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu số vòng hoặc thời gian nếu nguồn có.",
+        "Không dùng thông tin thiếu để khẳng định hai nghiên cứu tương đương."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_incidental",
+      "split": "test",
+      "group": "lung_incidental",
+      "topic": "lung_cancer",
+      "question": "Các phát hiện ngoài ung thư phổi trong nghiên cứu sàng lọc CT liều thấp được báo cáo như thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt kết cục chính và phát hiện tình cờ.",
+        "Nêu giới hạn chỉ dựa trên nội dung đã đọc."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "lung_comparator",
+      "split": "test",
+      "group": "lung_comparator",
+      "topic": "lung_cancer",
+      "question": "Các nhóm đối chứng trong nghiên cứu CT liều thấp sàng lọc ung thư phổi khác nhau thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Chỉ nêu đối chứng thực sự được mô tả.",
+        "Giải thích giới hạn so sánh giữa thiết kế khác nhau."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_home_program",
+      "split": "test",
+      "group": "copd_home_program",
+      "topic": "copd",
+      "question": "Phục hồi chức năng hô hấp tại nhà và tại cơ sở cho COPD được so sánh về chất lượng cuộc sống ra sao?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu thiết kế và nhóm so sánh có trong nguồn.",
+        "Không kết luận tương đương nếu nguồn không hỗ trợ."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_maintenance",
+      "split": "test",
+      "group": "copd_maintenance",
+      "topic": "copd",
+      "question": "Các nghiên cứu chương trình duy trì sau phục hồi chức năng hô hấp ở COPD báo cáo kết quả gì?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt can thiệp ban đầu với chương trình duy trì.",
+        "Giữ thời gian đánh giá và kết cục được nêu."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_telerehab",
+      "split": "test",
+      "group": "copd_telerehab",
+      "topic": "copd",
+      "question": "Phục hồi chức năng hô hấp từ xa ở COPD được đánh giá qua những kết cục chất lượng cuộc sống nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Chỉ nêu thước đo và số liệu có trong nguồn.",
+        "Nêu giới hạn và nhóm so sánh nếu có."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_exacerbation",
+      "split": "test",
+      "group": "copd_exacerbation",
+      "topic": "copd",
+      "question": "Các nghiên cứu sau đợt cấp COPD mô tả tác động của phục hồi chức năng hô hấp đến chất lượng cuộc sống như thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Giữ bối cảnh sau đợt cấp.",
+        "Không khái quát sang mọi người bệnh COPD."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_adherence",
+      "split": "test",
+      "group": "copd_adherence",
+      "topic": "copd",
+      "question": "Mức tham gia chương trình phục hồi chức năng hô hấp ở COPD được báo cáo cùng kết quả chất lượng cuộc sống ra sao?",
+      "clarifications": [],
+      "required_outputs": [
+        "Chỉ nêu mức tham gia thực sự có trong nguồn.",
+        "Không suy ra nhân quả từ một liên hệ quan sát."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_program_duration",
+      "split": "test",
+      "group": "copd_program_duration",
+      "topic": "copd",
+      "question": "Thời lượng chương trình phục hồi chức năng hô hấp trong nghiên cứu COPD được mô tả ra sao?",
+      "clarifications": [],
+      "required_outputs": [
+        "Nêu thời lượng và thành phần chương trình nếu có.",
+        "Không bịa chi tiết phương pháp thiếu trong abstract."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    },
+    {
+      "id": "copd_symptoms_vs_qol",
+      "split": "test",
+      "group": "copd_symptoms_vs_qol",
+      "topic": "copd",
+      "question": "Các nghiên cứu COPD phân biệt thay đổi triệu chứng với thay đổi chất lượng cuộc sống sau phục hồi chức năng hô hấp như thế nào?",
+      "clarifications": [],
+      "required_outputs": [
+        "Phân biệt triệu chứng và chất lượng cuộc sống.",
+        "Giữ tên kết cục và thước đo từng nghiên cứu."
+      ],
+      "annotation_status": "pending_human_review",
+      "references_reviewed": false,
+      "reference_source_ids": []
+    }
+  ]
+}

@@ -1,7 +1,16 @@
 # Project Brief — Biomedical Research Agent
 
+**Tiến độ thực hiện mới:** đã phát triển bản local v2 theo [pipeline](workflow.md).
+Đối chiếu phần đã đạt, kết quả chạy thật và phần còn thiếu tại
+[implementation-status.md](implementation-status.md). Nội dung định hướng học bên
+dưới được giữ; các mục tiêu chất lượng chưa tự trở thành kết quả đã kiểm chứng.
+
 **Dự án:** Biomedical Research Agent — Agent tra cứu và tổng hợp thông tin y khoa có nguồn  
-**Phiên bản:** Learning prototype v0.1 · **Ngày:** 27/10/2026 · **Trạng thái:** Vòng lặp hai tool đã qua kiểm thử và model local với dữ liệu phát lại; tra cứu NCBI online còn gặp trang chặn
+**Phiên bản:** Local agent v1 · **Ngày:** 27/10/2026 · **Trạng thái:** Đã tích hợp CLI, plan/decision loop, tools, đánh giá chứng cứ, SQLite/resume và report; đã chạy model local với snapshot PubMed. Tra cứu NCBI online còn gặp trang chặn.
+
+**Điểm chạy:** `python3 -m medical_agent`. Xem [hệ thống thực tế](system.md).
+Các yêu cầu tổng quan nhiều nghiên cứu bên dưới vẫn là mục tiêu để đánh giá chất lượng,
+chưa phải khả năng đã được kiểm chứng y khoa.
 
 ## 0. Mục tiêu học và cách triển khai
 
@@ -82,7 +91,7 @@ Các đầu ra trên là **đặc tả kết quả agent cần tạo ra**, chưa
 - **Đầu ra:** Phạm vi đã dùng, thời điểm tìm kiếm, bảng nghiên cứu, phát hiện có nguồn, điểm nhất quán/mâu thuẫn, thông tin còn thiếu và giới hạn tra cứu.
 - **Giới hạn nội dung:** Chỉ ghi quần thể, phương pháp, kết cục, thước đo và số liệu được phần tài liệu đã đọc hỗ trợ. Nếu abstract không có thông tin, đánh dấu chưa có trong nguồn đã đọc. DOI không có trong dữ liệu thì để thiếu; không tạo mã giả để hoàn thiện bảng.
 - **Thời gian:** Lưu nguyên khoảng năm người dùng yêu cầu và thời điểm tra cứu thực tế. Không tuyên bố bao phủ toàn bộ năm 2026 khi năm chưa kết thúc. Với từ “gần đây”, hỏi rõ khoảng năm hoặc công bố một mặc định cấu hình trước khi tìm.
-- **Nguồn:** PubMed là nguồn thực hành đầu tiên. Medical RAG là nhánh mở rộng khi có corpus được nạp; không coi là đã được triển khai.
+- **Nguồn:** PubMed và corpus txt/md/json/jsonl đã nạp, tìm bằng FTS5/BM25. Dense Medical RAG với embedding/reranker là nhánh chưa triển khai.
 - **Thành công:** Người dùng mở được nguồn thật, kiểm tra được các phát hiện quan trọng và biết Agent chưa xác minh được điều gì.
 - **Thất bại:** Bịa bài báo/PMID, dẫn một nguồn không hỗ trợ kết luận, khẳng định chắc chắn khi bằng chứng thiếu, hoặc tự đưa lời khuyên điều trị cá nhân hóa.
 
@@ -113,8 +122,8 @@ Bắt đầu với **ba tình huống đã đặc tả** để kiểm tra một 
 - **Nguồn dữ liệu:** Chỉ tài liệu công khai/được phép dùng; không lưu thông tin nhận dạng bệnh nhân.
 - **Minh bạch:** Ghi thời điểm tìm kiếm, giới hạn tra cứu, tài liệu đã sử dụng và lý do không thể kết luận; giữ log tool call phục vụ kiểm thử.
 - **Giả định cần xác minh:** Với bài thực hành dùng abstract, bản tổng hợp dựa trên abstract có đáp ứng đầu ra đã định hay không; khi thiếu full-text, phải nêu rõ giới hạn.
-- **Bước đang làm:** [Bài 5: nối hai tool](7.md): model yêu cầu search, dùng PMID đã tìm được để yêu cầu fetch, rồi tóm tắt từ abstract. Có giới hạn vòng/tool và chặn lỗi nguồn; chưa có memory giữa các câu hỏi hoặc kiểm tra ngữ nghĩa trích dẫn đầy đủ.
-- **Đã chốt:** Ba ví dụ đầu vào/đầu ra và hướng kiến trúc dùng chung nhiều chủ đề. [Workflow](workflow.md) là thiết kế, chưa phải chức năng đã chạy.
+- **Bước hiện tại:** Chạy [hệ thống local v1](system.md), đọc trace và đối chiếu report. Có corpus/memory bền vững, checkpoint/resume và giới hạn; chưa kiểm chứng đầy đủ ngữ nghĩa trích dẫn. Run mới không tự chèn toàn bộ hội thoại cũ vào context.
+- **Đã chốt:** Ba ví dụ đầu vào/đầu ra và kiến trúc dùng chung nhiều chủ đề. [Workflow](workflow.md) giữ thiết kế mở rộng; [system.md](system.md) chỉ rõ phần đã triển khai.
 - **Cần làm khi sang bài dữ liệu:** Lấy các bản ghi PubMed phù hợp, lưu nguồn và thời điểm truy xuất; xây tiêu chí đối chiếu nội dung và xác định người đánh giá diễn giải chuyên môn nếu cần.
 
-**Tiêu chí hoàn thành brief:** Người học kể lại được một tình huống cụ thể, đầu vào/đầu ra và cách phân biệt thành công với thất bại. Đã có bản thiết kế [workflow](workflow.md) để tiếp tục phân tích từng bước; việc gọi model thật và truy xuất PubMed vẫn phải được thực hành riêng.
+**Tiêu chí hoàn thành brief:** Người học kể lại được một tình huống cụ thể, đầu vào/đầu ra và cách phân biệt thành công với thất bại. Đã chạy model local thật trên snapshot PubMed; truy xuất online ổn định và chất lượng tổng quan nhiều nghiên cứu vẫn cần đánh giá tiếp.

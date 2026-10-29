@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "status": "executable_deterministic_fixtures",
+  "description": "12 kịch bản phần mềm với model/source có kiểm soát; không phải clinical eval hoặc red-team toàn diện với model thật.",
+  "cases": [
+    {
+      "id": "source_empty",
+      "scenario": "Tìm kiếm thành công nhưng không có kết quả",
+      "test": "test_delivery.DeliveryTests.test_fixed_baseline_empty_result_returns_partial",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "source_block",
+      "scenario": "Nguồn bị chặn, dừng và giữ khả năng resume",
+      "test": "test_system.SystemTests.test_blocked_source_pauses_and_can_resume",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "http_retry",
+      "scenario": "HTTP tạm thời retry giới hạn, không retry lỗi tham số",
+      "test": "test_pubmed_failures.PubMedFailureTests.test_http429_retries_but_http400_does_not",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "missing_abstract",
+      "scenario": "Không tổng hợp như đã đọc khi nguồn thiếu abstract",
+      "test": "test_system.SystemTests.test_missing_abstract_is_rejected_before_assessor",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "unknown_id",
+      "scenario": "Không gọi source ID lạ hoặc action ngoài danh sách",
+      "test": "test_system.SystemTests.test_unknown_source_and_unsafe_action_are_rejected",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "invented_span",
+      "scenario": "Không chấp nhận span ID được bịa",
+      "test": "test_system.SystemTests.test_fabricated_quote_cannot_satisfy_success",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "wrong_reference",
+      "scenario": "Không xuất claim tham chiếu evidence không có",
+      "test": "test_system.SystemTests.test_unknown_report_reference_is_not_published",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "budget",
+      "scenario": "Hết budget phải dừng với report một phần",
+      "test": "test_system.SystemTests.test_budget_produces_partial_report_without_false_completion",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "restart",
+      "scenario": "Resume giữ counters của tool đang bị ngắt",
+      "test": "test_system.SystemTests.test_restart_resumes_checkpointed_read_without_double_charge",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "injection",
+      "scenario": "Nội dung tài liệu không cấp quyền gọi shell",
+      "test": "test_delivery.DeliveryTests.test_injected_document_does_not_grant_shell_action",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "personal_scope",
+      "scenario": "Không gọi tool cho yêu cầu kê đơn cá nhân đã nhận diện",
+      "test": "test_delivery.DeliveryTests.test_patient_specific_scope_is_rejected_before_tool",
+      "execution": "fixture_not_live_model"
+    },
+    {
+      "id": "duplicate_evidence",
+      "scenario": "Nhiều chunk không thành nhiều nguồn độc lập",
+      "test": "test_system.SystemTests.test_multiple_chunks_cannot_count_as_multiple_independent_sources",
+      "execution": "fixture_not_live_model"
+    }
+  ]
+}
